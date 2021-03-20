@@ -1,0 +1,27 @@
+{
+  "name": "pchapl/ids",
+  "license": "proprietary",
+  "type": "symfony-bundle",
+  "description": "",
+  "authors": [
+    {
+      "name": "Pavel Chaplygin",
+      "email": "mail@pchapl.dev"
+    }
+  ],
+  "require": {
+    "php": "^8.0.0",
+    "doctrine/dbal": "^3.0|^2.8.0",
+    "symfony/http-kernel": "^5.0",
+    "symfony/dependency-injection": "^5.0",
+    "symfony/config": "^5.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "autoload": {
+    "psr-4": {
+      "pchapl\\DoctrineIdBundle\\": "src"
+    }
+  }
+}
