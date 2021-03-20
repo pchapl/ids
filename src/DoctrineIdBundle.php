@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace pchapl\DoctrineIdBundle;
 
+use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
+use JetBrains\PhpStorm\Pure;
 use pchapl\DoctrineIdBundle\Exception\InvalidConfigurationException;
 use pchapl\DoctrineIdBundle\Id\Base;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class DoctrineIdBundle extends Bundle
 {
+    /**
+     * @throws Exception
+     */
     public function boot(): void
     {
         $idTypes = $this->container->hasParameter('doctrine_id')
@@ -54,6 +59,7 @@ class DoctrineIdBundle extends Bundle
             private string $class;
             private string $name;
 
+            #[Pure]
             public function convertToPHPValue($value, AbstractPlatform $platform): Base
             {
                 if ($value instanceof $this->class) {

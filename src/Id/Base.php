@@ -18,12 +18,12 @@ abstract class Base
     }
 
     #[Pure]
-    public static function fromValue(string $value): self
+    public static function fromValue(string $value): static
     {
         return new static($value);
     }
 
-    public static function new(Factory $factory): self
+    public static function new(Factory $factory): static
     {
         return new static($factory->generate());
     }
