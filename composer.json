@@ -1,8 +1,8 @@
 {
   "name": "pchapl/ids",
-  "license": "proprietary",
+  "license": "WTFPL",
   "type": "symfony-bundle",
-  "description": "",
+  "description": "Symfony bundle for doctrine custom types autoconfiguration",
   "authors": [
     {
       "name": "Pavel Chaplygin",
