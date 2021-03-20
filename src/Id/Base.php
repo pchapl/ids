@@ -17,6 +17,11 @@ abstract class Base
         return $this->id;
     }
 
+    public function __toString(): string
+    {
+        return $this->getValue();
+    }
+
     #[Pure]
     public static function fromValue(string $value): static
     {
