@@ -1,8 +1,9 @@
 <?php
 
-namespace PChapl\Tests;
+namespace PChapl\Tests\Id;
 
 use PChapl\DoctrineIdBundle\Id\TypeFactory;
+use PChapl\Tests\TestId;
 use PHPUnit\Framework\TestCase;
 
 class TypeFactoryTest extends TestCase

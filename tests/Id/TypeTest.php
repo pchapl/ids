@@ -1,12 +1,13 @@
 <?php
 
-namespace PChapl\Tests;
+namespace PChapl\Tests\Id;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use PChapl\DoctrineIdBundle\Exception\ConversionException;
 use PChapl\DoctrineIdBundle\Id\Base;
 use PChapl\DoctrineIdBundle\Id\Type;
 use PChapl\DoctrineIdBundle\Id\TypeFactory;
+use PChapl\Tests\TestId;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 

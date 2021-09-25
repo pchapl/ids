@@ -12,12 +12,14 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class DoctrineIdBundle extends Bundle
 {
-    /**
-     * @throws Exception|InvalidArgumentException
-     */
+    public const TYPES_PARAMETER_NAME = 'pchapl.doctrine_id.types';
+    public const BUNDLE_ID = 'doctrine_id';
+    public const CONFIG_TYPES_KEY = 'types';
+
+    /** @throws Exception|InvalidArgumentException */
     public function boot(): void
     {
-        $types = $this->container->getParameter('pchapl.doctrine_id.types');
+        $types = $this->container->getParameter(self::TYPES_PARAMETER_NAME);
 
         foreach ($types as $typeName => $class) {
             if (!Type::hasType($typeName)) {

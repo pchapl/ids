@@ -1,9 +1,10 @@
 <?php
 
-namespace PChapl\Tests;
+namespace PChapl\Tests\Id;
 
 use PChapl\DoctrineIdBundle\Id\Base;
 use PChapl\DoctrineIdBundle\Id\Factory;
+use PChapl\Tests\TestId;
 use PHPUnit\Framework\TestCase;
 
 class BaseTest extends TestCase
