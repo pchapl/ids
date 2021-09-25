@@ -1,5 +1,10 @@
 # Symfony bundle provides id type autoconfiguration for doctrine
 
+<img src="https://img.shields.io/github/workflow/status/pchapl/ids/build%20and%20test" alt="github workflow status"/>
+<img src="https://img.shields.io/github/v/tag/pchapl/ids" alt="latest tag"/>
+<img src="https://img.shields.io/github/license/pchapl/ids" alt="license"/>
+<img src="https://img.shields.io/codecov/c/github/pchapl/ids" alt="code coverage"/>
+
 ## Usage
 
 `composer require pchapl/ids`
@@ -24,29 +29,23 @@ final class AccountId extends Base
 
 ```
 
-Configure the bundle with types in the `config/services.yaml`:
+Configure the bundle with types in the `config/packages/doctrine_id.yaml`:
 
 ```yaml
-parameters:
-  doctrine_id:
+doctrine_id:
     types:
-      account_id: App\Data\AccountId
-      user_id: App\Data\UserId
+        account_id: App\Data\AccountId
+        user_id: App\Data\UserId
 ```
 
 Then just use in entities
 
 ```php
 
-/**
- * @ORM\Entity(repositoryClass=AccountRepository::class)
- */
+#[ORM\Entity]
 class Account
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="account_id")
-     */
+    #[ORM\Column(type="account_id")]
     private AccountId $id;
 
     public function __construct(AccountId $id)

@@ -31,6 +31,6 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-clover var/coverage.xml"
     }
 }
