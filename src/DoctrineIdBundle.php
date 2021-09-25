@@ -2,17 +2,15 @@
 
 declare(strict_types=1);
 
-namespace pchapl\DoctrineIdBundle;
+namespace PChapl\DoctrineIdBundle;
 
 use Doctrine\DBAL\Exception;
-use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
-use JetBrains\PhpStorm\Pure;
-use pchapl\DoctrineIdBundle\Exception\InvalidConfigurationException;
-use pchapl\DoctrineIdBundle\Id\Base;
+use PChapl\DoctrineIdBundle\Exception\InvalidConfigurationException;
+use PChapl\DoctrineIdBundle\Id\TypeFactory;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class DoctrineIdBundle extends Bundle
+final class DoctrineIdBundle extends Bundle
 {
     /**
      * @throws Exception
@@ -43,48 +41,9 @@ class DoctrineIdBundle extends Bundle
                 );
             }
 
-            $instance = $this->instantiate();
-
-            $instance->setClass($class);
-            $instance->setName($typeName);
+            $instance = TypeFactory::instantiateType($class, $typeName);
 
             Type::getTypeRegistry()->register($typeName, $instance);
         }
-    }
-
-    private function instantiate(): Id\Type
-    {
-        return new class extends Id\Type {
-            /** @var string|Base $class */
-            private string $class;
-            private string $name;
-
-            #[Pure]
-            public function convertToPHPValue($value, AbstractPlatform $platform): Base
-            {
-                if ($value instanceof $this->class) {
-                    return $value;
-                }
-
-                $class = $this->class;
-
-                return $class::fromValue($value);
-            }
-
-            public function setClass(string $class): void
-            {
-                $this->class = $class;
-            }
-
-            public function getName(): string
-            {
-                return $this->name;
-            }
-
-            public function setName(string $name): void
-            {
-                $this->name = $name;
-            }
-        };
     }
 }

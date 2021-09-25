@@ -2,28 +2,36 @@
 
 declare(strict_types=1);
 
-namespace pchapl\DoctrineIdBundle\Id;
+namespace PChapl\DoctrineIdBundle\Id;
 
 use JetBrains\PhpStorm\Pure;
+use Stringable;
 
-abstract class Base
+abstract class Base implements Stringable
 {
     private function __construct(private string $id)
     {
     }
 
-    public function getValue(): string
+    #[Pure]
+    final public function __toString(): string
+    {
+        return $this->getValue();
+    }
+
+    #[Pure]
+    final public function getValue(): string
     {
         return $this->id;
     }
 
     #[Pure]
-    public static function fromValue(string $value): static
+    final public static function fromValue(string $value): static
     {
         return new static($value);
     }
 
-    public static function new(Factory $factory): static
+    final public static function new(Factory $factory): static
     {
         return new static($factory->generate());
     }

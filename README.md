@@ -7,7 +7,7 @@
 Enable bundle in `config/bundles.php`:
 
 ```php
-    pchapl\DoctrineIdBundle\DoctrineIdBundle::class => ['all' => true],
+    PChapl\DoctrineIdBundle\DoctrineIdBundle::class => ['all' => true],
 ```
 
 Create Id classes like
@@ -16,7 +16,7 @@ Create Id classes like
 
 namespace App\Data;
 
-use pchapl\DoctrineIdBundle\Id\Base;
+use PChapl\DoctrineIdBundle\Id\Base;
 
 final class AccountId extends Base
 {
@@ -66,7 +66,7 @@ with generated string id:
 ```php
 /** @var \Hidehalo\Nanoid\Client $nanoidClient */
 
-$factory = new class($nanoidClient) implements \pchapl\DoctrineIdBundle\Id\Factory {
+$factory = new class($nanoidClient) implements \PChapl\DoctrineIdBundle\Id\Factory {
     public function __construct(private \Hidehalo\Nanoid\Client $nano)
     {
     }

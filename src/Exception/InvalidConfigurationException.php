@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace pchapl\DoctrineIdBundle\Exception;
+namespace PChapl\DoctrineIdBundle\Exception;
 
 use InvalidArgumentException;
 
-class InvalidConfigurationException extends InvalidArgumentException
+final class InvalidConfigurationException extends InvalidArgumentException
 {
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace pchapl\DoctrineIdBundle\Id;
+namespace PChapl\DoctrineIdBundle\Id;
 
 interface Factory
 {

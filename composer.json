@@ -1,27 +1,33 @@
 {
-  "name": "pchapl/ids",
-  "license": "WTFPL",
-  "type": "symfony-bundle",
-  "description": "Symfony bundle for doctrine custom types autoconfiguration",
-  "authors": [
-    {
-      "name": "Pavel Chaplygin",
-      "email": "mail@pchapl.dev"
+    "name": "pchapl/ids",
+    "license": "WTFPL",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle for doctrine custom types autoconfiguration",
+    "authors": [
+        {
+            "name": "Pavel Chaplygin",
+            "email": "mail@pchapl.dev"
+        }
+    ],
+    "require": {
+        "php": "^8.0.0",
+        "doctrine/dbal": "^3.0|^2.8.0",
+        "symfony/http-kernel": "^5.0",
+        "symfony/dependency-injection": "^5.0",
+        "symfony/config": "^5.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "PChapl\\DoctrineIdBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PChapl\\Tests\\": "tests/"
+        }
     }
-  ],
-  "require": {
-    "php": "^8.0.0",
-    "doctrine/dbal": "^3.0|^2.8.0",
-    "symfony/http-kernel": "^5.0",
-    "symfony/dependency-injection": "^5.0",
-    "symfony/config": "^5.0"
-  },
-  "require-dev": {
-    "roave/security-advisories": "dev-latest"
-  },
-  "autoload": {
-    "psr-4": {
-      "pchapl\\DoctrineIdBundle\\": "src"
-    }
-  }
 }
