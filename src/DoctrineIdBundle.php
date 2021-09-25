@@ -20,7 +20,9 @@ final class DoctrineIdBundle extends Bundle
         $types = $this->container->getParameter('pchapl.doctrine_id.types');
 
         foreach ($types as $typeName => $class) {
-            Type::getTypeRegistry()->register($typeName, TypeFactory::instantiateType($class, $typeName));
+            if (!Type::hasType($typeName)) {
+                Type::getTypeRegistry()->register($typeName, TypeFactory::instantiateType($class, $typeName));
+            }
         }
     }
 }
