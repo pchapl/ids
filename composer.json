@@ -29,5 +29,8 @@
         "psr-4": {
             "PChapl\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }
